@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import createElement from '../../helpers/domHelper';
+import { generateSvgIconHtml } from '../../types/constants';
 import { IMovie } from '../../types/response/mapperResponse';
 
 class Favourite {
@@ -23,22 +24,7 @@ class Favourite {
             },
         });
 
-        svgIconWrapper.innerHTML = `
-        <svg
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="red"
-        fill= "red"
-        width="50"
-        height="50"
-        viewBox="0 -2 18 22"
-        class="svg-heart"
-    >
-        <path
-            fill-rule="evenodd"
-            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-        />
-    </svg>
-        `;
+        svgIconWrapper.innerHTML = generateSvgIconHtml(id);
 
         const cardBody = createElement({ tagName: 'div', className: 'card-body' });
         const cardText = createElement({ tagName: 'p', className: 'card-text truncate' });
@@ -82,6 +68,7 @@ class Favourite {
         });
 
         favouriteHeaderTitle.innerText = 'FAVORITE';
+
         favouriteHeader.append(favouriteHeaderTitle, favoriteHeaerButton);
 
         return [favouriteHeader, favouriteMovieContainer];

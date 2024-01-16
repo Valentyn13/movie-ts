@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import createElement from '../../helpers/domHelper';
-import { isMovieInFavourites, toggleFavouriteMovie } from '../../helpers/favourite';
+import { toggleFavouriteMovie } from '../../helpers/favourite';
+import { generateSvgIconHtml } from '../../types/constants';
 import { IMovie } from '../../types/response/mapperResponse';
 
 class FilmCard {
@@ -29,22 +30,8 @@ class FilmCard {
             className: 'd-flex justify-content-between align-items-center',
         });
 
-        svgIconWrapper.innerHTML = `
-        <svg
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="red"
-        fill= ${isMovieInFavourites(id) ? 'red' : '#ff000078'}
-        width="50"
-        height="50"
-        viewBox="0 -2 18 22"
-        class="svg-heart"
-    >
-        <path
-            fill-rule="evenodd"
-            d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-        />
-    </svg>
-        `;
+        svgIconWrapper.innerHTML = generateSvgIconHtml(id);
+
         svgIconWrapper.addEventListener('click', (e) => {
             const element = e.target as HTMLElement;
             const elementId = element.id;
