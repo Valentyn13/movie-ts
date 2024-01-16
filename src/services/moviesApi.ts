@@ -1,5 +1,6 @@
 import { moviesMapper } from '../helpers/mapper';
 import { ApiEndpoints } from '../types/api/endpoints';
+import { requestOptions } from '../types/auth.tokens';
 
 class MoviesApi {
     #apiPath: ApiEndpoints;
@@ -9,18 +10,10 @@ class MoviesApi {
     }
 
     async getMovies(page?: number, name?: string) {
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization:
-                    'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjQyYzcxOWIyNjA2YTg2MDNlYjg5MDVmZmM3NGNlZSIsInN1YiI6IjY1YTNhNDQ5YmMyY2IzMDBiZTAyMjc2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tWRGYzerYDH772JBhndICWbOtuG1TRdzPRBo6ZL1yoo',
-            },
-        };
         const configurePage = page ? `${this.#apiPath}&page=${page}` : `${this.#apiPath}&page=1`;
         const configurePageAndName = name ? `${configurePage}&query=${name}` : configurePage;
 
-        const response = await fetch(configurePageAndName, options);
+        const response = await fetch(configurePageAndName, requestOptions);
         const data = await response.json();
 
         const mapperedMovies = moviesMapper(data);
