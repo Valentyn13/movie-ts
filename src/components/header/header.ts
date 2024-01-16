@@ -1,6 +1,5 @@
-import { favourite } from '../../data';
-import createElement, { removeAllChildNodes } from '../../helpers/domHelper';
-import { movieDetailsApi } from '../../services/movieDetailsApi';
+import { getAllFavouritesDetails, renderDetails } from '../../controllers/favouriteHeartController';
+import createElement from '../../helpers/domHelper';
 import Favourite from '../favourite/favourite';
 
 class Header {
@@ -30,24 +29,8 @@ class Header {
         });
 
         button.addEventListener('click', async () => {
-            const favouriteMovieContainer = document.getElementById('favorite-movies') as HTMLElement;
-            removeAllChildNodes(favouriteMovieContainer);
-            favourite.forEach(async (id) => {
-                const movieDetails = await movieDetailsApi.getDetails(id);
-
-                if (movieDetails) {
-                    const movieCard = Favourite.renderMovie(movieDetails).cloneNode(true);
-                    favouriteMovieContainer.appendChild(movieCard);
-                    const buttonHeart = document.getElementById(`f-${id}`);
-                    if (buttonHeart) {
-                        buttonHeart.addEventListener('click', (e) => {
-                            const element = e.target as HTMLElement;
-                            const movieId = element.dataset.originalId;
-                            console.log('Enter', movieId);
-                        });
-                    }
-                }
-            });
+            const movieList = await getAllFavouritesDetails();
+            renderDetails(movieList);
         });
 
         logo.innerHTML = `<strong>MOVIE</strong>`;
@@ -58,7 +41,7 @@ class Header {
         return navbar;
     }
 
-    async render() {
+    static async render() {
         const headerComponent = createElement({ tagName: 'header' });
         headerComponent.appendChild(Header.renderHeaderContent());
         const favouriteComponent = Favourite.render();

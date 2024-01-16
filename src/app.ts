@@ -3,8 +3,6 @@ import Main from './components/main/mainComponent';
 import { popularMoviesApi } from './services/moviesApi';
 import { IMovieList } from './types/response/mapperResponse';
 
-const header = new Header();
-
 export interface IAppData {
     currentPage: number;
     movies: IMovieList;
@@ -25,7 +23,7 @@ class App {
             currentPage: initMoviesData.page,
         };
 
-        const { headerComponent, favouriteComponent } = await header.render();
+        const { headerComponent, favouriteComponent } = await Header.render();
 
         const mainComponent = Main.render(App.appData);
 

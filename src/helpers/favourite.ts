@@ -24,13 +24,13 @@ export const addFavourite = (movieId: number) => {
     }
 };
 
-export const toggleFavouriteMovie = (movieId: number, element: HTMLElement) => {
+export const toggleFavouriteMovie = (movieId: number, element?: HTMLElement | null) => {
     if (isMovieInFavourites(movieId)) {
         deleteMovie(movieId);
-        element.setAttribute('fill', '#ff000078');
+        if (element) element.setAttribute('fill', '#ff000078');
     } else {
         addFavourite(movieId);
-        element.setAttribute('fill', 'red');
+        if (element) element.setAttribute('fill', 'red');
     }
     saveLocalStorageFavourites();
 };
