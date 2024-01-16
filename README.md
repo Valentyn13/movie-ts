@@ -13,12 +13,24 @@ OR
 3. **`npm run dev`** at the root
 4. open **`http://localhost:9050/`**
 
-## 💡 PS
+## 💡 Commit flow
 
-The project has a [Git Hooks](https://www.atlassian.com/git/tutorials/git-hooks), [Prettier](https://prettier.io/) and [Eslint](https://eslint.org/) set up, to validate your JS code.
+Modifiers
+ 1. `*` - edit or update
+ 2. `+` - add or create
+ 3. `-` - remove
 
-## 💡 PPS
+```
+<project-name>: <task performed> - optional short description
 
-Please, make sure there are no linter errors in your homework!
+movie-ts: documentation - update readme.md file
+```
 
-## 🤞 Good luck
+
+
+MY API KEY:c642c719b2606a8603eb8905ffc74cee
+
+API Read Access Token:eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNjQyYzcxOWIyNjA2YTg2MDNlYjg5MDVmZmM3NGNlZSIsInN1YiI6IjY1YTNhNDQ5YmMyY2IzMDBiZTAyMjc2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tWRGYzerYDH772JBhndICWbOtuG1TRdzPRBo6ZL1yoo
+
+Here's an example API request:
+https://api.themoviedb.org/3/movie/550?api_key=c642c719b2606a8603eb8905ffc74cee
