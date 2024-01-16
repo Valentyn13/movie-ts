@@ -1,8 +1,6 @@
 /* eslint-disable no-plusplus */
-import App from '../../app';
-import { radioButtonController } from '../../controllers/radioButton';
-import createElement, { removeAllChildNodes } from '../../helpers/domHelper';
-import Album from '../album/album';
+import createElement from '../../helpers/domHelper';
+import { loadMoreController } from '../../services/loadMoreController';
 
 class LoadMore {
     static render() {
@@ -16,23 +14,7 @@ class LoadMore {
             attributes: { id: 'load-more', type: 'button' },
         });
         button.innerText = 'Load more';
-        button.addEventListener('click', async () => {
-            const filmsContainerWrapper = document.getElementById('film-container-wrapper');
-            const nameInput = document.getElementById('search') as HTMLInputElement;
-            const movieName = nameInput.value;
-            const response = await radioButtonController(App.appData.currentPage + 1, movieName);
-
-            if (response) {
-                App.appData.movies = [...App.appData.movies, ...response.movies];
-                App.appData.currentPage = response.page;
-            }
-
-            if (filmsContainerWrapper) {
-                removeAllChildNodes(filmsContainerWrapper);
-                const filmContainer = Album.createContent(App.appData.movies);
-                filmsContainerWrapper.appendChild(filmContainer);
-            }
-        });
+        button.addEventListener('click', loadMoreController);
         loadMoreComponent.appendChild(button);
         return loadMoreComponent;
     }
