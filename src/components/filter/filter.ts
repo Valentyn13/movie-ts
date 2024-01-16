@@ -1,8 +1,6 @@
 /* eslint-disable no-plusplus */
-import App from '../../app';
-import { radioButtonController } from '../../controllers/radioButton';
-import createElement, { removeAllChildNodes } from '../../helpers/domHelper';
-import Album from '../album/album';
+import createElement from '../../helpers/domHelper';
+import { filterOnclickController } from '../../services/filterOnclickController';
 
 class Filter {
     static createContent() {
@@ -68,51 +66,9 @@ class Filter {
             },
         });
 
-        popularRadioInput.addEventListener('click', async () => {
-            const response = await radioButtonController();
-            const filmsContainerWrapper = document.getElementById('film-container-wrapper');
-
-            if (response) {
-                App.appData.movies = response.movies;
-                App.appData.currentPage = response.page;
-            }
-
-            if (filmsContainerWrapper) {
-                removeAllChildNodes(filmsContainerWrapper);
-                const filmContainer = Album.createContent(App.appData.movies);
-                filmsContainerWrapper.appendChild(filmContainer);
-            }
-        });
-        upcommingRadioInput.addEventListener('click', async () => {
-            const response = await radioButtonController();
-            const filmsContainerWrapper = document.getElementById('film-container-wrapper');
-
-            if (response) {
-                App.appData.movies = response.movies;
-                App.appData.currentPage = response.page;
-            }
-
-            if (filmsContainerWrapper) {
-                removeAllChildNodes(filmsContainerWrapper);
-                const filmContainer = Album.createContent(App.appData.movies);
-                filmsContainerWrapper.appendChild(filmContainer);
-            }
-        });
-        topRatedRadioInput.addEventListener('click', async () => {
-            const response = await radioButtonController();
-            const filmsContainerWrapper = document.getElementById('film-container-wrapper');
-
-            if (response) {
-                App.appData.movies = response.movies;
-                App.appData.currentPage = response.page;
-            }
-
-            if (filmsContainerWrapper) {
-                removeAllChildNodes(filmsContainerWrapper);
-                const filmContainer = Album.createContent(App.appData.movies);
-                filmsContainerWrapper.appendChild(filmContainer);
-            }
-        });
+        popularRadioInput.addEventListener('click', filterOnclickController);
+        upcommingRadioInput.addEventListener('click', filterOnclickController);
+        topRatedRadioInput.addEventListener('click', filterOnclickController);
 
         popularLable.innerText = 'Popular';
         upcommingLable.innerText = 'Upcomming';
