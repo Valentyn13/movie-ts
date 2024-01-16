@@ -9,9 +9,8 @@ class Search {
         const searchComponent = createElement({
             tagName: 'div',
             className: 'container-fluid d-flex bg-light justify-content-center',
-            attributes: {},
         });
-        const form = createElement({ tagName: 'form', className: 'form-inline col-6 px-2 d-flex', attributes: {} });
+        const form = createElement({ tagName: 'form', className: 'form-inline col-6 px-2 d-flex' });
 
         const searchInput = createElement({
             tagName: 'input',

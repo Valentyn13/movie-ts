@@ -7,10 +7,9 @@ class FilmCard {
     static createContent(movie: IMovie) {
         const { poster_path, release_date, overview, id } = movie;
 
-        const cardComponent = createElement({ tagName: 'div', className: 'card shadow-sm', attributes: {} });
+        const cardComponent = createElement({ tagName: 'div', className: 'card shadow-sm' });
         const cardImage = createElement({
             tagName: 'img',
-            className: '',
             attributes: {
                 src: `https://image.tmdb.org/t/p/original/${poster_path}`,
             },
@@ -23,12 +22,11 @@ class FilmCard {
             },
         });
 
-        const cardBody = createElement({ tagName: 'div', className: 'card-body', attributes: {} });
-        const cardText = createElement({ tagName: 'p', className: 'card-text truncate', attributes: {} });
+        const cardBody = createElement({ tagName: 'div', className: 'card-body' });
+        const cardText = createElement({ tagName: 'p', className: 'card-text truncate' });
         const releaseDate = createElement({
             tagName: 'div',
             className: 'd-flex justify-content-between align-items-center',
-            attributes: {},
         });
 
         svgIconWrapper.innerHTML = `
@@ -69,7 +67,6 @@ class FilmCard {
         const cardWrapper = createElement({
             tagName: 'div',
             className: 'col-lg-3 col-md-4 col-12 p-2',
-            attributes: {},
         });
         cardWrapper.appendChild(FilmCard.createContent(movie));
         return cardWrapper;

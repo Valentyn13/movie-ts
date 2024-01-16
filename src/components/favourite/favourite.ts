@@ -5,11 +5,10 @@ import { IMovie } from '../../types/response/mapperResponse';
 class Favourite {
     static renderMovie(movieData: IMovie) {
         const { id, overview, release_date, poster_path } = movieData;
-        const favouriteMovieGrid = createElement({ tagName: 'div', className: '', attributes: {} });
-        const movieCard = createElement({ tagName: 'div', className: 'card shadow-sm', attributes: {} });
+        const favouriteMovieGrid = createElement({ tagName: 'div' });
+        const movieCard = createElement({ tagName: 'div', className: 'card shadow-sm' });
         const cardImg = createElement({
             tagName: 'img',
-            className: '',
             attributes: {
                 src: `https://image.tmdb.org/t/p/original/${poster_path}`,
             },
@@ -41,12 +40,11 @@ class Favourite {
     </svg>
         `;
 
-        const cardBody = createElement({ tagName: 'div', className: 'card-body', attributes: {} });
-        const cardText = createElement({ tagName: 'p', className: 'card-text truncate', attributes: {} });
+        const cardBody = createElement({ tagName: 'div', className: 'card-body' });
+        const cardText = createElement({ tagName: 'p', className: 'card-text truncate' });
         const movieReleaseDate = createElement({
             tagName: 'div',
             className: 'd-flex justify-content-between align-items-center',
-            attributes: {},
         });
 
         movieReleaseDate.innerHTML = `<small class="text-muted">${release_date}</small>`;
@@ -60,10 +58,9 @@ class Favourite {
     }
 
     static renderContent() {
-        const favouriteHeader = createElement({ tagName: 'div', className: 'offcanvas-header', attributes: {} });
+        const favouriteHeader = createElement({ tagName: 'div', className: 'offcanvas-header' });
         const favouriteHeaderTitle = createElement({
             tagName: 'h5',
-            className: '',
             attributes: {
                 id: 'offcanvasRightLabel',
             },

@@ -20,7 +20,7 @@ class Album {
     }
 
     static render(movieList: IMovieList) {
-        const albumComponent = createElement({ tagName: 'div', className: 'album py-5 bg-light', attributes: {} });
+        const albumComponent = createElement({ tagName: 'div', className: 'album py-5 bg-light' });
 
         const loadMore = LoadMore.render();
 

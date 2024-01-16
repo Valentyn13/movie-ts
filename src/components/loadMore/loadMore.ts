@@ -9,7 +9,6 @@ class LoadMore {
         const loadMoreComponent = createElement({
             tagName: 'div',
             className: 'd-flex justify-content-center align-items-center pt-4',
-            attributes: {},
         });
         const button = createElement({
             tagName: 'button',

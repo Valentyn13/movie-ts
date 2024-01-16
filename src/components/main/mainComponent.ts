@@ -9,7 +9,7 @@ import Search from '../search/search';
 
 class Main {
     static render(appData: IAppData) {
-        const mainComponent = createElement({ tagName: 'main', className: '', attributes: {} });
+        const mainComponent = createElement({ tagName: 'main' });
         const randomMovieComponent = RandomMovie.render(getRandomElement(appData.movies));
         const filterComponent = Filter.render();
         const searchComponent = Search.render();

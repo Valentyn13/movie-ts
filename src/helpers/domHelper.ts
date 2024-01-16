@@ -1,12 +1,12 @@
 interface ICreateElementParams {
     tagName: string;
-    className: string;
-    attributes: {
+    className?: string;
+    attributes?: {
         [key: string]: string;
     };
 }
 
-export default function createElement({ tagName, className, attributes = {} }: ICreateElementParams): HTMLElement {
+export default function createElement({ tagName, className = '', attributes = {} }: ICreateElementParams): HTMLElement {
     const element = document.createElement(tagName);
 
     if (className) {

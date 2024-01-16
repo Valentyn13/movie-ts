@@ -11,7 +11,7 @@ class RandomMovie {
             className: 'row py-lg-5 component-positon',
             attributes: { id: 'random-movie' },
         });
-        const row = createElement({ tagName: 'div', className: 'row py-lg-5 random-content', attributes: {} });
+        const row = createElement({ tagName: 'div', className: 'row py-lg-5 random-content' });
         const column = createElement({
             tagName: 'div',
             className: 'col-lg-6 col-md-8 mx-auto column-display',
@@ -30,7 +30,6 @@ class RandomMovie {
         const cardImageContainer = createElement({
             tagName: 'div',
             className: 'random-image-container',
-            attributes: {},
         });
 
         cardImageContainer.appendChild(cardImage);

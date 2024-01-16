@@ -134,7 +134,6 @@ class Filter {
         const filterComponent = createElement({
             tagName: 'div',
             className: 'container-fluid d-flex bg-light justify-content-center p-2',
-            attributes: {},
         });
         filterComponent.appendChild(Filter.createContent());
         return filterComponent;

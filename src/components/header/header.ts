@@ -8,9 +8,8 @@ class Header {
         const navbar = createElement({
             tagName: 'div',
             className: 'navbar navbar-dark bg-dark shadow-sm',
-            attributes: {},
         });
-        const container = createElement({ tagName: 'div', className: 'container', attributes: {} });
+        const container = createElement({ tagName: 'div', className: 'container' });
         const logo = createElement({
             tagName: 'a',
             className: 'navbar-brand d-flex align-items-center',
@@ -60,7 +59,7 @@ class Header {
     }
 
     async render() {
-        const headerComponent = createElement({ tagName: 'header', className: '', attributes: {} });
+        const headerComponent = createElement({ tagName: 'header' });
         headerComponent.appendChild(Header.renderHeaderContent());
         const favouriteComponent = Favourite.render();
         return { headerComponent, favouriteComponent };
