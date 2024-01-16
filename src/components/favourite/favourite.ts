@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import createElement from '../../helpers/domHelper';
-import { generateSvgIconHtml } from '../../types/constants';
+import { generateSvgIconHtml, getImageApiPath } from '../../types/constants';
 import { IMovie } from '../../types/response/mapperResponse';
 
 class Favourite {
@@ -11,7 +11,7 @@ class Favourite {
         const cardImg = createElement({
             tagName: 'img',
             attributes: {
-                src: `https://image.tmdb.org/t/p/original/${poster_path}`,
+                src: getImageApiPath(poster_path),
             },
         });
 

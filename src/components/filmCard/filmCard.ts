@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import createElement from '../../helpers/domHelper';
 import { toggleFavouriteMovie } from '../../helpers/favourite';
-import { generateSvgIconHtml } from '../../types/constants';
+import { generateSvgIconHtml, getImageApiPath } from '../../types/constants';
 import { IMovie } from '../../types/response/mapperResponse';
 
 class FilmCard {
@@ -12,7 +12,7 @@ class FilmCard {
         const cardImage = createElement({
             tagName: 'img',
             attributes: {
-                src: `https://image.tmdb.org/t/p/original/${poster_path}`,
+                src: getImageApiPath(poster_path),
             },
         });
         const svgIconWrapper = createElement({

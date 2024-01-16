@@ -19,3 +19,5 @@ class="svg-heart"
 `;
     return svgIcontHtml;
 };
+
+export const getImageApiPath = (posterPath: string) => `https://image.tmdb.org/t/p/original/${posterPath}`;

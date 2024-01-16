@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import createElement from '../../helpers/domHelper';
+import { getImageApiPath } from '../../types/constants';
 import { IMovie } from '../../types/response/mapperResponse';
 
 class RandomMovie {
@@ -24,7 +25,7 @@ class RandomMovie {
             tagName: 'img',
             className: 'random-image_',
             attributes: {
-                src: `https://image.tmdb.org/t/p/original/${poster_path}`,
+                src: getImageApiPath(poster_path),
             },
         });
         const cardImageContainer = createElement({
